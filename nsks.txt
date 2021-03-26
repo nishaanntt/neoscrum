@@ -1,0 +1,14 @@
+keytool -genkey -v -keystore neoscrum.keystore -alias neoscrum -keyalg RSA -keysize 2048 -validity 10000
+
+password: neoscrum@2021
+first and last name: Nishant Parashar
+Organizational Unit: JSRN
+Name of Organization: Neosoft Technologies
+City: Pune
+State: Maharashtra
+Country Code: IN
+
+MYAPP_RELEASE_STORE_FILE=neoscrum.keystore
+MYAPP_RELEASE_KEY_ALIAS=neoscrum
+MYAPP_RELEASE_STORE_PASSWORD=neoscrum@2021
+MYAPP_RELEASE_KEY_PASSWORD=neoscrum@2021
