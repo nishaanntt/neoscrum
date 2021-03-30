@@ -1,14 +1,25 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Dashboard } from '../screens/Dashboard'
 import AddFeedback from '../screens/AddFeedback';
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 export function TabNavigator () {
     return (
-        <Tab.Navigator barStyle={styles.botBar}>
+        <Tab.Navigator
+            tabBarOptions={{
+                style: {
+                    backgroundColor: '#eee',
+                    paddingBottom: 18,
+                    height: 60,
+                },
+                labelStyle: {
+                    fontSize: 14,
+                }
+            }}
+        >
             <Tab.Screen name={'Dashboard'} component={Dashboard} />
             <Tab.Screen name={'Add Feedback'} component={AddFeedback} />
         </Tab.Navigator>

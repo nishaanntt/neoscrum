@@ -7,27 +7,32 @@ import {
     TouchableOpacity 
 } from 'react-native';
 import { AuthContext } from '../components/Context';
+import Icon from 'react-native-vector-icons/FontAwesome5'
+import { useNavigation } from '@react-navigation/native'
 
 export function Header () {
-
-    const { signOut } = React.useContext(AuthContext);
+    
+    const navigation = useNavigation();
 
     return (
         
             <View style={styles.header}>
-                <View style={styles.userProfile}>
-                    <Image 
-                        source={require('../images/profilePic.jpeg')}
-                        style={styles.profileImg}
+                <View style={styles.headerLeft}>
+                    <Icon 
+                        name='bars'
+                        size={20}
+                        color='#eee'
+                        onPress={()=>navigation.openDrawer()}
                     />
-                    <Text style={styles.user}>Profile</Text>
                 </View>
-                <TouchableOpacity 
-                    style={styles.logoutButton}
-                    onPress={()=>{signOut()}}
-                >
-                    <Text style={styles.buttonText}>Logout</Text>
-                </TouchableOpacity>
+                <View style={styles.title}>
+                    <Text style={styles.titleNeo}>
+                        Neo
+                        <Text style={styles.titleScrum}>
+                            SCRUM
+                        </Text>
+                    </Text>
+                </View>
             </View>
         
     )
@@ -38,40 +43,29 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     header: {
+        height: 60,
         backgroundColor: '#000',
         padding: 10,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
     },
-    userProfile: {
-        flexDirection: 'row',
-        alignItems: 'center',
+    headerLeft: {
+        position: 'absolute',
+        left: 20,
+        marginLeft: 14,
     },
-    user: {
-        paddingLeft: 5,
-        fontSize: 20,
-        fontWeight: '300',
+    title: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    titleNeo: {
+        fontSize: 21,
         color: '#eee',
+        fontWeight: 'bold'
     },
-    profileImg: {
-        width: 50,
-        height: 50,
-        borderRadius: 50/2,
-    },
-    logoutButton: {
-        backgroundColor: '#eee',
-        // borderWidth: 1,
-        // borderColor: '#e5e5e5',
-        paddingHorizontal: 5,
-        width: 85,
-        borderRadius: 4,
-        alignItems: 'center',
-        paddingVertical: 10,
-        elevation: 10,
-    },
-    buttonText: {
-        fontSize: 16,
-        color: "#000",
-    },
+    titleScrum: {
+        color: 'pink'
+    }
 })

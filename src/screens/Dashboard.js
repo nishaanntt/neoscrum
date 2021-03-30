@@ -63,11 +63,11 @@ const styles = StyleSheet.create({
     },
     body: {
         flex: 8,
-        paddingTop: 15,
+        paddingTop: 0,
         alignItems: 'center',
     },
     title: {
-        fontSize: 24,
+        fontSize: 21,
     },
     activityIndicator: {
         flex: 1, 
